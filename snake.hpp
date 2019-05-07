@@ -21,6 +21,10 @@ namespace Snake{
 
     typedef vector<Bend> Bends;
 
+    //TODO - klasa Segment z polami Coords2D(opcjonalnie) i (już na pewno - prawie) is_bend_
+    //w zależności od is_bend_ destruktor będzie usuwał z pola bends_ benda
+    // WAŻNE!!! - opcja lepsza - typedef na to samo i wartości is not bend albo is bend
+
     class Snake{
     private:
         std::size_t minLength;
@@ -29,7 +33,13 @@ namespace Snake{
         DIRECTION headOrientation_;
         DIRECTION tailOrientation;
         Bends bends_;
+        //TODO - pole segments_ - kolejka dwukierunkowa, najlepiej elementy osobnej klasy Segment
     public:
+        Snake(DIRECTION orientation=DIRECTION::UP, Coordinates2D headCoordinates=Coordinates2D({0,3}),
+                std::size_t size=3) :
+            headOrientation_(orientation), tailOrientation(orientation), headCoordinates_(headCoordinates) {
+            //TODO - inicjalizacja pola segments_ w zależności od długości i kierunku początkowego
+        }
         void move(DIRECTION direction){
             switch (direction) {
                 case DIRECTION::UP:
