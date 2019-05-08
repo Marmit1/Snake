@@ -57,9 +57,4 @@ public:
 	int _szepla;
 };
 
-int main()
-{
-	plansza();
-
-}
 // szerokość faktyczna wynosi 2*szepla aby zachować proporcje z wysokością
