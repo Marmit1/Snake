@@ -1,9 +1,10 @@
+﻿#include "pch.h"
 #include <iostream>
 
 class plansza {
 public:
 	plansza() {
-		setplansza();                                                     
+		setplansza();
 		char pio = 186, poz = 205, pd = 188, pg = 187, lg = 201, ld = 200;  //graficzne tworzenie ramki planszy
 		std::cout << lg;
 		for (int i = 1; i <= _szepla; i++) {
@@ -59,6 +60,6 @@ public:
 int main()
 {
 	plansza();
-	
+
 }
 // szerokość faktyczna wynosi 2*szepla aby zachować proporcje z wysokością
