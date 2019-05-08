@@ -24,6 +24,9 @@
     <ClInclude Include="Snake.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gameboard.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -32,10 +35,10 @@
     <ClCompile Include="Snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameBoard.cpp">
+    <ClCompile Include="Scoreboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scoreboard.cpp">
+    <ClCompile Include="Gameboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

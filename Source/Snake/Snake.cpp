@@ -3,9 +3,10 @@
 
 #include "pch.h"
 #include <iostream>
-
+#include "Gameboard.hpp"
 int main()
 {
+	plansza plansza;
     std::cout << "Hello World!\n"; 
 }
 
