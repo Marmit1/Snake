@@ -45,10 +45,10 @@ namespace Snake {
 			case DIRECTION::UP:
 				++headCoordinates_.second;
 				break;
-			case DIRECTION:DOWN:
+			case DIRECTION::DOWN:
 				--headCoordinates_.second;
 				break;
-			case DIRECTION:LEFT:
+			case DIRECTION::LEFT:
 				--headCoordinates_.first;
 				break;
 			case DIRECTION::RIGHT:
@@ -59,7 +59,7 @@ namespace Snake {
 				bends_.push_back(Bend(headCoordinates_));
 			}
 			for (std::size_t i = bends_.begin(); i < bends_.end(); ++i) {
-				if (i.coordinates_ == tailCoordinates_) {
+				if (bends_[i].coordinates_ == tailCoordinates_) {
 					bends_.erase(i);
 				}
 			}
