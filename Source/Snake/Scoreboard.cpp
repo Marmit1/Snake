@@ -1,25 +1,22 @@
 #include "pch.h"
 #include "Scoreboard.hpp"
-#include <sstream>
+#include <fstream>
 #include <algorithm>
 #include <windows.h>
-using namespace std;
 
-void Scoreboard::startTimer() { time_.timerSwich(1); }
+void Scoreboard::resetTimer() { time_.Stop(); time_.Start(); }
 
 
-void Timer::timerSwich(bool start) {
+std::ostream &operator<<(std::ostream &out, const Timer &t) {
+	out << " " << t.min_ << ":" << t.sec_ << " ";
+	return out;
+}
+
+
+void Timer::timerSwich() {
 	min_ = 0;
-	while (start) {
+	while (Swich_) {
 		for (sec_ = 0; sec_ < 60; sec_++) { Sleep(1000); }
 		min_++;
 	}
 }
-
-std::string Timer::tostring() {
-	std::ostringstream oss;
-	oss << "[" << min_ << ":" << sec_ << "]";
-
-	return oss.str();
-}
-
