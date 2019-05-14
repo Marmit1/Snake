@@ -19,7 +19,7 @@ public:
 
 private:
 	std::size_t sec_;
-	std::size_t min_;
+	std::size_t min_; 
 	bool Swich_;
 
 	void timerSwich();
