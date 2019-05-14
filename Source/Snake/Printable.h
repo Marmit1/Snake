@@ -1,5 +1,7 @@
 #pragma once
 #include<iostream>
+#include<vector>
+
 
 class printable {
 public:
@@ -27,10 +29,21 @@ public:
 
 class snake_body : public printable {
 public:
+	void print(pole type) override {
+		if(type==HEAD)
+			std::cout << "";
+		if (type == BODY)
+			std::cout << "";
+		if (type == TAIL)
+			std::cout << "";//nie wiem co ma byæ cia³em sanke'a
+	}
+};
+
+class print_blanck : public printable {
 	void print() override {
-		std::cout << ""; //nie wiem co ma byæ cia³em sanke'a
+		std::cout << " ";
 	}
 };
 
 
-print_game();
+print_game(std::vector<std::vector> board );
