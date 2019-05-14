@@ -53,8 +53,9 @@ public:
 
 		}
 	}
-
-
+	int getHeight() { return _wyspla; }// dodane do renderowania owoców (14.05.19)
+	int getWidth() { return 2*_szepla; }
+private:// dodanie 14.05.19
 	int _wyspla;
 	int _szepla;
 };
