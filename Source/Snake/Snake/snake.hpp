@@ -12,6 +12,8 @@ namespace Snake{
     };
 
     typedef std::pair<std::size_t, std::size_t> Coordinates2D;
+    using Coordinates2D.first Coordinates2D.x;
+    using Coordinates2D.second Coordinates2D.y;
 
     class Bend{
     private:
@@ -29,7 +31,7 @@ namespace Snake{
         Coordinates2D coordinates_;
         bool is_bend_;
     public:
-        Segment(Coordinates2D coordinates, bool is_bend): coordinates_(coordinates), is_bend_(is_bend){}
+        Segment(Coordinates2D coordinates, bool is_bend=false): coordinates_(coordinates), is_bend_(is_bend){}
         bool is_bend() { return is_bend_; }
         Coordinates2D get_coordinates(){ return coordinates_; }
     };
@@ -50,20 +52,42 @@ namespace Snake{
                 std::size_t size=3) :
             headOrientation_(orientation), tailOrientation(orientation), headCoordinates_(headCoordinates) {
             //TODO - inicjalizacja pola segments_ w zależności od długości i kierunku początkowego
+            switch(orientation){
+                case DIRECTION:UP:
+                    for(std::size_t i{0}; i<size; ++i){
+                        segments_.push_back(Segment({headCoordinates.x, headCoordinates.y-i}));
+                    }
+                    break;
+                case DIRECTION::DOWN:
+                    for(std::size_t i{0}; i<size; ++i){
+                        segments_.push_back(Segment({headCoordinates.x, headCoordinates.y+i}));
+                    }
+                    break;
+                case DIRECTION::LEFT:
+                    for(std::size_t i{0}; i<size; ++i){
+                        segments_.push_back(Segment({headCoordinates.x+i, headCoordinates.y}));
+                    }
+                    break;
+                case DIRECTION::RIGHT:
+                    for(std::size_t i{0}; i<size; ++i){
+                        segments_.push_back(Segment({headCoordinates.x-i, headCoordinates.y}));
+                    }
+                    break;
+            }
         }
         void move(DIRECTION direction){
             switch (direction) {
                 case DIRECTION::UP:
-                    ++headCoordinates_.second;
+                    ++headCoordinates_.y;
                     break;
                 case DIRECTION:DOWN:
-                    --headCoordinates_.second;
+                    --headCoordinates_.y;
                     break;
                 case DIRECTION:LEFT:
-                    --headCoordinates_.first;
+                    --headCoordinates_.x;
                     break;
                 case DIRECTION::RIGHT:
-                    ++headCoordinates_.first;
+                    ++headCoordinates_.x;
                     break;
             }
             if(headOrientation_ != direction) {
@@ -76,16 +100,16 @@ namespace Snake{
             }
             switch(tailOrientation){
                 case DIRECTION::UP:
-                    ++tailCoordinates_.second;
+                    ++tailCoordinates_.y;
                     break;
                 case DIRECTION::DOWN:
-                    --tailCoordinates_.second;
+                    --tailCoordinates_.y;
                     break;
                 case DIRECTION::LEFT:
-                    --tailCoordinates_.first;
+                    --tailCoordinates_.x;
                     break;
                 case DIRECTION::RIGHT:
-                    ++tailCoordinates_.first;
+                    ++tailCoordinates_.x;
                     break;
             }
         }
