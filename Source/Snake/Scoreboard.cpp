@@ -17,6 +17,6 @@ void Timer::timerSwich() {
 	min_ = 0;
 	while (Swich_) {
 		for (sec_ = 0; sec_ < 60; sec_++) { Sleep(1000); }
-		min_++;
+		min_++; 
 	}
 }
