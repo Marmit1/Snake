@@ -4,6 +4,7 @@
 #include "pch.h"
 #include <iostream>
 #include "Gameboard.hpp"
+#include <vector>
 int main()
 {
 	plansza plansza;
