@@ -11,7 +11,7 @@ public:
 
 class fruit : public printable {
 public: 
-	void print() override { //przyjnuje jak¹ zmienna i w ze¿noœci od tego mo¿e rysowaæ rózne owocki
+	void print() override { //przyjnuje jakÂ¹ zmienna i w zeÂ¿noÅ“ci od tego moÂ¿e rysowaÃ¦ rÃ³zne owocki
 		std::cout << "$";
 	}
 
@@ -35,7 +35,7 @@ public:
 		if (type == BODY)
 			std::cout << "";
 		if (type == TAIL)
-			std::cout << "";//nie wiem co ma byæ cia³em sanke'a
+			std::cout << "";//nie wiem co ma byÃ¦ ciaÂ³em sanke'a 
 	}
 };
 
