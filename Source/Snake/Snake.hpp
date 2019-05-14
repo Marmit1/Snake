@@ -79,6 +79,15 @@ namespace Snake {
 			}
 		}
 	};
+	class Fruit {
+	private:
+		Coordinates2D positionCoordinates_;
+		std::size_t value_;//wartość jaka zostaje dodana do długości węża
+	public:
+		Fruit(std::size_t value, Coordinates2D positionCoordinates): value_(value), positionCoordinates_(positionCoordinates) {}
+		void render();//dodano 13.05.19
+		void clean();//dodano 14.05.19
+
 }
 
 #endif
