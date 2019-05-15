@@ -1,9 +1,12 @@
+﻿#ifndef GAME_BOARD_HPP
+#define GAME_BOARD_HPP
+#include "pch.h"
 #include <iostream>
                                   //poniższy kod nie zostanie wykorzystany w naszej aplikacji. jest tylko dodatkowym wsparciem w sytuacji kryzysowej
 class plansza {
 public:
 	plansza() {
-		setplansza();                                                     
+		setplansza();
 		char pio = 186, poz = 205, pd = 188, pg = 187, lg = 201, ld = 200;  //graficzne tworzenie ramki planszy
 		std::cout << lg;
 		for (int i = 1; i <= _szepla; i++) {
@@ -50,15 +53,14 @@ public:
 
 		}
 	}
-
-private:
+	int getHeight() { return _wyspla; }// dodane do renderowania owoców (14.05.19)
+	int getWidth() { return 2*_szepla; }
+private:// dodanie 14.05.19
 	int _wyspla;
 	int _szepla;
 };
 
-int main()
-{
-	plansza();
-	
-}
 // szerokość faktyczna wynosi 2*szepla aby zachować proporcje z wysokością
+
+
+#endif // !GAME_BOARD_HPP
