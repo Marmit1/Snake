@@ -17,9 +17,10 @@ namespace Snake {
 		Coordinates2D coordinates_;
 	public:
 		Bend(Coordinates2D coordinates) : coordinates_(coordinates) {}
+		Coordinates2D GetCoordinates() { return coordinates_; }
 	};
 
-	typedef vector<Bend> Bends;
+	typedef std::vector<Bend> Bends;
 
 	//TODO - klasa Segment z polami Coords2D(opcjonalnie) i (już na pewno - prawie) is_bend_
 	//w zależności od is_bend_ destruktor będzie usuwał z pola bends_ benda
@@ -58,8 +59,8 @@ namespace Snake {
 			if (headOrientation_ != direction) {
 				bends_.push_back(Bend(headCoordinates_));
 			}
-			for (std::size_t i = bends_.begin(); i < bends_.end(); ++i) {
-				if (bends_[i].coordinates_ == tailCoordinates_) {
+			for (Bends::iterator i = bends_.begin(); i < bends_.end(); ++i) {
+				if ((*i).GetCoordinates() == tailCoordinates_) {
 					bends_.erase(i);
 				}
 			}
@@ -84,9 +85,10 @@ namespace Snake {
 		Coordinates2D positionCoordinates_;
 		std::size_t value_;//wartość jaka zostaje dodana do długości węża
 	public:
-		Fruit(std::size_t value, Coordinates2D positionCoordinates): value_(value), positionCoordinates_(positionCoordinates) {}
-		void render();//dodano 13.05.19
-		void clean();//dodano 14.05.19
+		Fruit(std::size_t value, Coordinates2D positionCoordinates) : value_(value), positionCoordinates_(positionCoordinates) {}
+		void render(const plansza& p);
+		void clean();
+	};
 
 }
 
