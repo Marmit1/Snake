@@ -48,7 +48,7 @@ void printAll(const std::void<printable*>& printings) //hehehxd
 {
 	for(const auto& element : printings)
 	{
-		element.print();
+		element->print();
 	}
 }
 //print_game(std::vector<std::vector> board );
