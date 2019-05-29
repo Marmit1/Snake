@@ -35,7 +35,7 @@ public:
 	//	if (type == BODY)
 	//		std::cout << "";
 	//	if (type == TAIL)
-	//		std::cout << "";//nie wiem co ma byæ cia³em sanke'a 
+	//		std::cout << "";//nie wiem co ma byæ cia³em snake'a 
 	//}
 };
 
