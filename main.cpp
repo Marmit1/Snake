@@ -95,3 +95,80 @@ void GameOver()
         if((z == 13) && (x == 1))  PodMenu();
     }
 }
+
+void Poruszanie(int &rozmiar, int snakeX[], int snakeY[], int tempX[], int tempY[], int &item_count, int &punkty) {
+    int count = 0;
+    char input = 219;
+    char previnput = 's';
+    int tailX, tailY;
+    bool gameOver = false;
+    vector<int> itemX, itemY;
+
+    while (!gameOver)                                    // Pętla aż gra się skończy
+    {
+        PredkoscPoruszania();                                    // Prędkość
+
+        // Dodanie ogona podczas poruszania
+        tailY = snakeY[rozmiar - 1];
+        tailX = snakeX[rozmiar - 1];
+
+        // Usunięcie poprzednich śladów po ogonie
+        Level[tailY][tailX] = ' ';
+        Pozycje(itemX, itemY, item_count, snakeX, snakeY, rozmiar, tailX, tailY, punkty);
+
+        // Kopia węża (z wyjątkiem ogona) do tablicy temp
+        // Zostawienie pierwszego elementy
+        for (int i = 0; i < rozmiar - 1; i++) {
+            tempX[i + 1] = snakeX[i];                        // Kopiowanie wartości y
+            tempY[i + 1] = snakeY[i];                        // Kopiowanie wartości x
+        }
+
+        // Kopia głowy do pierwszego elementy aby mógł zostać przeniesiony przez użytkownika
+        tempX[0] = snakeX[0];
+        tempY[0] = snakeY[0];
+
+        // Kopiowanie tablicy temp
+        // Pierwsze 2 elementy będą powielać głowy z samej pozycji X i Y
+        for (int i = 0; i < rozmiar; i++) {
+            snakeX[i] = tempX[i];                        // Kopiowanie wartości Y
+            snakeY[i] = tempY[i];                        // Kopiowanie wartości X
+        }
+
+        // Naciśnięcie klawiszy
+        if (_kbhit())
+            input = _getch();
+
+        // WHILE MOVING DOWN
+        if (previnput == 's') {
+            snakeY[0] += 1;                                // Zestaw głów na nowej pozycji
+            if (input == 'a' || input == 'A')            // Idź w lewo
+                previnput = 'a';
+            else if (input == 'd' || input == 'D')    // Idź w prawo
+                previnput = 'd';
+        }
+            // WHILE MOVING UP
+        else if (previnput == 'w') {
+            snakeY[0] -= 1;                                // Zestaw głów na nowej pozycji
+            if (input == 'a' || input == 'A')        // Idź w lewo
+                previnput = 'a';
+            else if (input == 'd' || input == 'D')    // Idź w prawo
+                previnput = 'd';
+        }
+            // WHILE MOVING RIGHT
+        else if (previnput == 'd') {
+            snakeX[0] += 1;                                // Zestaw głów na nowej pozycji
+            if (input == 'w' || input == 'W')        // Idź w górę
+                previnput = 'w';
+            else if (input == 's' || input == 'S')    // Idź w dół
+                previnput = 's';
+        }
+            // WHILE MOVING LEFT
+        else if (previnput == 'a') {
+            snakeX[0] -= 1;
+            if (input == 'w' || input == 'W')            // Idź w góre
+                previnput = 'w';
+            else if (input == 's' || input == 'S')    // Idź w dół
+                previnput = 's';
+        }
+    }
+}
