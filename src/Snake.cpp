@@ -6,8 +6,6 @@
 #include <fstream>									     
 #include <string>
 
-
-
 using namespace std;
 #define WIDTH 20									
 #define HEIGHT 20									
@@ -20,20 +18,20 @@ void ClearScreen();
 void BudowaPoziomu();																							
 void RysunekPlanszy();																								
 void Poruszanie(int &rozmiar, int snakeX[], int snakeY[], int tempX[], int tempY[], int &item_count, int &punkty); 
-void PredkoscPoruszania();																							
-void Pozycje(vector<int> &itemX, vector<int> &itemY, int &item_count, int snakeX[], int snakeY[], int &rozmiar, int tailX, int tailY, int &punkty);	Węża
+void PredkoscPoruszania(){}
+void Pozycje(vector<int> &itemX, vector<int> &itemY, int &item_count, int snakeX[], int snakeY[], int &rozmiar, int tailX, int tailY, int &punkty){}
 bool IsGameOver(int snakeX[], int snakeY[], int rozmiar);														
-void bialy();																								
-void magnetowy();																							
-void PodMenu();																								
+void bialy(){}
+void magnetowy(){}
+void PodMenu(){}
 void Menu();																								
 void snake();																								
 void Opcje();																								
 void Aktywne();																								
 void Nieaktywne();																							
 void GameOver();																							
-void Gwiazdka();																							
-void Gwiazdka2();																							
+void Gwiazdka(){}
+void Gwiazdka2(){}
 void Sterowanie();																							
 
 
@@ -97,8 +95,8 @@ void GameOver()
 }
 
 void Poruszanie(int &rozmiar, int snakeX[], int snakeY[], int tempX[], int tempY[], int &item_count, int &punkty) {
-    int count = 0;
-    char input = 219;
+    //int count = 0;
+    char input = (char)219;
     char previnput = 's';
     int tailX, tailY;
     bool gameOver = false;
@@ -171,4 +169,8 @@ void Poruszanie(int &rozmiar, int snakeX[], int snakeY[], int tempX[], int tempY
                 previnput = 's';
         }
     }
+}
+
+int main()
+{
 }
