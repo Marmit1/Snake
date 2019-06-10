@@ -13,7 +13,7 @@ char Level[HEIGHT][WIDTH];
 
 
 // Deklaracja funkcji
-void Initialize(int rozmiar, int snakeX[], int snakeY[]);														
+void Initialize(int rozmiar, int snakeX[], int snakeY[]);
 void ClearScreen();																							
 void BudowaPoziomu();																							
 void RysunekPlanszy();																								
@@ -58,6 +58,23 @@ void BudowaPoziomu()
             Level[HEIGHT-1][j] = '*';
         }
     }
+}
+
+// Inicjalizacja Węża
+void Initialize(int rozmiar, int snakeX[], int snakeY[])
+{
+    snakeX[0] = WIDTH/2;	snakeY[0] = 3;				// Wymiary Węża
+    snakeX[1] = WIDTH/2;	snakeY[1] = 2;
+    snakeX[2] = WIDTH/2;	snakeY[2] = 1;
+    for(int i=3; i< 100; i++)
+    {
+        snakeX[i] = NULL;
+        snakeY[i] = NULL;
+    }
+    char waz = 219;
+    // Pozycja węża
+    for(int i=0; i<rozmiar; i++)
+        Level[snakeY[i]][snakeX[i]] = waz ;
 }
 
 
