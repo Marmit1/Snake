@@ -188,6 +188,39 @@ void Poruszanie(int &rozmiar, int snakeX[], int snakeY[], int tempX[], int tempY
     }
 }
 
+// Menu główne
+void Menu()
+{
+    while(1)
+    {
+        bialy();
+        system("cls");
+        printf("\t\t  SSSS                       kk\n");
+        printf("\t\t SS   SS                     kk\n");
+        printf("\t\t SS   SS                     kk\n");
+        printf("\t\t SS        nnnnn     aaaa    kk  kk    eeee\n");
+        printf("\t\t  SSS      nn  nn   aa  aa   kk kk    ee  ee\n");
+        printf("\t\t    SSS    nn  nn     aaaa   kkkk     eeeeee\n");
+        printf("\t\t      SS   nn  nn    aa aa   kkk      ee\n");
+        printf("\t\t SS   SS   nn  nn   aa  aa   kkkk     ee\n");
+        printf("\t\t SS   SS   nn  nn   aa  aa   kk kk    ee  ee\n");
+        printf("\t\t  SSSSS    nn  nn    aaaaa   kk  kk    eeee\n\n\n");
+
+
+        if(m==1){magnetowy();}printf("\t\t\t\t ROZPOCZNIJ GRE \n");bialy();
+        if(m==2){magnetowy();}printf("\t\t\t\t MENU OPCJI \n");bialy();
+        if(m==3){magnetowy();}printf("\t\t\t\t WYJSCIE \n");bialy();
+        z = _getch();
+
+        if(z == 72){m--;}
+        if(m == 0){m =+ 3;}
+        if(z == 80){if(m<3){m++;}}						// Ograniczenie z dołu
+        if((z == 13) && (m == 3)) exit(1);				// Wyjście z programu
+        if((z == 13) && (m == 2)) Opcje();				// Menu opcji
+        if((z == 13) && (m == 1)) Sterowanie();			// Rozpoczęcie Gry
+    }
+}
+
 int main()
 {
 }
